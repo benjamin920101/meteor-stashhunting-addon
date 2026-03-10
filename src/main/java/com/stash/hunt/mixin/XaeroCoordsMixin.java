@@ -2,7 +2,7 @@ package com.stash.hunt.mixin;
 
 import com.stash.hunt.MagicMix;
 import net.minecraft.client.font.TextRenderer;
-import com.mojang.blaze3d.vertex.Matrix4f;
+import org.joml.Matrix4f;
 import net.minecraft.client.render.VertexConsumerProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,7 +12,7 @@ import xaeroplus.module.impl.Drawing;
 @Mixin(Drawing.class)
 public class XaeroCoordsMixin {
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Ljava/lang/String;FFIZLcom/mojang/blaze3d/vertex/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I"))
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Ljava/lang/String;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I"))
     private int replaceCoordString(TextRenderer fr, String text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider provider, TextRenderer.TextLayerType type, int light, int overlay) {
         if (MagicMix.coordinatesIsActive()) {
             String fake = String.format("X: %d  Z: %d", (int) MagicMix.getX(), (int) MagicMix.getZ());
