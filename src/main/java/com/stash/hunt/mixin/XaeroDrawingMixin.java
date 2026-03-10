@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xaeroplus.Globals;
 import xaeroplus.module.impl.Drawing;
 
-@Mixin(Drawing.class)
+@Mixin(value = Drawing.class, remap = false)
 public class XaeroDrawingMixin
 {
     @Inject(method= "addHighlight(II)V", at = @At("HEAD"), remap = false)
