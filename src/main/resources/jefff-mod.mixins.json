@@ -6,7 +6,8 @@
     "LivingEntityMixin",
     "EntityMixin",
     "KeyBindingMixin",
-    "XaeroDrawingMixin"
+    "XaeroDrawingMixin",
+    "XaeroCoordsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

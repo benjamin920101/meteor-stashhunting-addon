@@ -70,6 +70,7 @@ public class Addon extends MeteorAddon {
                 Modules.get().add(new OldChunkNotifier());
 //                Modules.get().add(new LavaESP());
                 Modules.get().add(new TrailMaker());
+                Modules.get().add(new com.stash.hunt.modules.FakeCoordinates());
             }
             if (baritoneLoaded)
             {
